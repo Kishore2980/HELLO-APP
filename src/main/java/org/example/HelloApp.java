@@ -1,23 +1,24 @@
 package org.example;// UC 3 - Display "Hello" with Command-Line Argument or Default Message
 
-// UC4 - Display hello
+// UC5 - Hellowithcomma
 
 public class HelloApp {
 
     public static void main(String[] args) {
 
-        String name = "";
         StringBuilder nameBuilder = new StringBuilder();
-        for (int i = 0; i < args.length; i++) {
-            nameBuilder.append(args[i]);
+        boolean first = true;
 
-            if (i < args.length - 1) {
-                nameBuilder.append(" ");
+        for (String name : args) {
+            if (!first) {
+                nameBuilder.append(", ");
             }
+            nameBuilder.append(name);
+            first = false;
         }
 
-        name = nameBuilder.toString();
+        String names = nameBuilder.toString();
 
-        System.out.println("Hello " + name + "!");
+        System.out.println("Hello " + names + "!");
     }
 }
